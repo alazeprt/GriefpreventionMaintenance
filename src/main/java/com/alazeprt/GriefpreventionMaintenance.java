@@ -4,8 +4,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 
-import static com.alazeprt.GriefpreventionMaintenancePlayerEvent.list;
-import static com.alazeprt.GriefpreventionMaintenancePlayerEvent.timer;
+import static com.alazeprt.GriefpreventionMaintenanceEvent.list;
+import static com.alazeprt.GriefpreventionMaintenanceEvent.timer;
 
 
 public class GriefpreventionMaintenance extends JavaPlugin {
@@ -16,8 +16,7 @@ public class GriefpreventionMaintenance extends JavaPlugin {
         if(!file.exists()){
             saveResource("data.yml", false);
         }
-        getServer().getPluginManager().registerEvents(new GriefpreventionMaintenanceClaimEvent(), this);
-        getServer().getPluginManager().registerEvents(new GriefpreventionMaintenancePlayerEvent(), this);
+        getServer().getPluginManager().registerEvents(new GriefpreventionMaintenanceEvent(), this);
         timer = new Timer(list);
         timer.start();
         Charge charge = new Charge();

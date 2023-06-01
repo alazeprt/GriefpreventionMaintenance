@@ -6,12 +6,10 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
-import com.alazeprt.Timer;
 
-public class GriefpreventionMaintenancePlayerEvent implements Listener {
+public class GriefpreventionMaintenanceEvent implements Listener {
 
     public static Timer timer;
 
@@ -19,7 +17,6 @@ public class GriefpreventionMaintenancePlayerEvent implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent join){
-        GriefpreventionMaintenanceClaimEvent.count = new GriefpreventionMaintenanceCount(join.getPlayer());
         list.add(join.getPlayer());
         timer.updateList(list);
     }
