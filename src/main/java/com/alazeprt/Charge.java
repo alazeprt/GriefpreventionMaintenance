@@ -26,12 +26,12 @@ public class Charge extends Thread {
             if(playertime.getStringList("players") != null){
                 for(String time : playertime.getStringList("players")){
                     String[] sp = time.split(";");
-                    if(Integer.parseInt(sp[1]) % 5 == 0){
+                    if(Integer.parseInt(sp[1]) % GriefpreventionMaintenance.config.getInt("time") == 0){
                         Player player = Bukkit.getPlayerExact(sp[0]);
                         if(player != null && player.isOnline()){
                             Vector<Claim> claims = GriefPrevention.instance.dataStore.getPlayerData(player.getUniqueId()).getClaims();
                             Claim smallestClaim = null;
-                            long money = 0;
+                            double money = 0;
                             for(Claim claim : claims){
                                 if(smallestClaim == null){
                                     smallestClaim = claim;
@@ -40,7 +40,7 @@ public class Charge extends Thread {
                                         smallestClaim = claim;
                                     }
                                 }
-                                money += (claim.getArea() * 0.4);
+                                money += (claim.getArea() * GriefpreventionMaintenance.config.getDouble("multiplying"));
                             }
                             double player_money = economy.getBalance(player);
                             if (player_money > money) {

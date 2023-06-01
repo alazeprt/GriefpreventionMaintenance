@@ -2,6 +2,7 @@ package com.alazeprt;
 
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -13,6 +14,8 @@ import static com.alazeprt.GriefpreventionMaintenanceEvent.timer;
 
 
 public class GriefpreventionMaintenance extends JavaPlugin {
+
+    public static FileConfiguration config;
 
     private static Economy econ = null;
 
@@ -27,6 +30,7 @@ public class GriefpreventionMaintenance extends JavaPlugin {
         if(!config.exists()){
             saveResource("config.yml", false);
         }
+        GriefpreventionMaintenance.config = YamlConfiguration.loadConfiguration(config);
         File data = new File(getDataFolder(), "data.yml");
         if(!data.exists()){
             saveResource("data.yml", false);
