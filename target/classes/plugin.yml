@@ -1,0 +1,7 @@
+name: GriefpreventionMaintenance
+main: com.alazeprt.GriefpreventionMaintenance
+version: 1.0.0
+api-version: 1.13
+depend:
+  - GriefPrevention
+  - XConomy
