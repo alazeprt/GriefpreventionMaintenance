@@ -1,5 +1,6 @@
 package com.alazeprt;
 
+import me.ryanhamshire.GriefPrevention.GriefPrevention;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -40,6 +41,9 @@ public class Timer extends Thread {
                 }
                 int i = 0;
                 for(Player player : list){
+                    if(GriefPrevention.instance.dataStore.getPlayerData(player.getUniqueId()).getClaims().size() == 0){
+                        continue;
+                    }
                     if(map.containsKey(player.getName())){
                         int count = map.get(player.getName()) + 1;
                         time.set(i, (player.getName() + ";" + count));

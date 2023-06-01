@@ -1,6 +1,6 @@
 name: GriefpreventionMaintenance
 main: com.alazeprt.GriefpreventionMaintenance
-version: 1.0.0
+version: 1.1-SNAPSHOT
 api-version: 1.13
 depend:
   - GriefPrevention

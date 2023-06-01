@@ -11,6 +11,8 @@ import java.util.List;
 
 public class GriefpreventionMaintenanceEvent implements Listener {
 
+    public static hasClaim hasClaim;
+
     public static Timer timer;
 
     public static List<Player> list = new ArrayList<>();
@@ -19,11 +21,13 @@ public class GriefpreventionMaintenanceEvent implements Listener {
     public void onPlayerJoin(PlayerJoinEvent join){
         list.add(join.getPlayer());
         timer.updateList(list);
+        hasClaim.updateList(list);
     }
 
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent quit){
         list.remove(quit.getPlayer());
         timer.updateList(list);
+        hasClaim.updateList(list);
     }
 }

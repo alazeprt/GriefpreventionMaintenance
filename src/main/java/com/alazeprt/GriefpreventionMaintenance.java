@@ -11,6 +11,7 @@ import java.util.logging.Level;
 
 import static com.alazeprt.GriefpreventionMaintenanceEvent.list;
 import static com.alazeprt.GriefpreventionMaintenanceEvent.timer;
+import static com.alazeprt.GriefpreventionMaintenanceEvent.hasClaim;
 
 
 public class GriefpreventionMaintenance extends JavaPlugin {
@@ -40,6 +41,8 @@ public class GriefpreventionMaintenance extends JavaPlugin {
         timer.start();
         Charge charge = new Charge(econ);
         charge.start();
+        hasClaim = new hasClaim(list);
+        hasClaim.start();
     }
 
     private boolean setupEconomy() {
