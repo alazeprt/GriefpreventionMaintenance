@@ -28,3 +28,6 @@ Please add logs to help us analyze errors.
 
 **Additional context**
 Add any other context about the problem here.
+
+**Server Information**
+Using the /version command to view
